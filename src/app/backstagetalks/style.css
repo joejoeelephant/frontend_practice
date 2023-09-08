@@ -1,0 +1,15 @@
+.page-container {
+    font-family: 'Roboto', sans-serif;
+}
+
+.scroll-container {
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+    /* scroll-behavior: smooth; */
+}
+
+.scroll-container section {
+    /* scroll-snap-align: start; */
+    height: 100vh;
+}
