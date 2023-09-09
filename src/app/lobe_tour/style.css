@@ -1,0 +1,101 @@
+.page-container {
+    --color-primary: #333;
+    --color-secondary: #767676;
+    --color-accent: #04ddb2;
+    font-family: LabGrotesque,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: var(--color-primary);
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.color-accent {
+    color: var(--color-accent);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
+.hamburger {
+    --space: 0.3rem;
+    --line-width: 2px;
+    position: relative;
+    width: 18px;
+    height: calc(var(--space)*2 + var(--line-width) * 2)
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: var(--line-width);
+    background: var(--color-primary);
+    transform-origin: center center;
+    transition: transform 0.3s;
+}
+
+.hamburger span::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: var(--line-width);
+    background: var(--color-primary);
+    top: var(--space);
+    transform-origin: center center;
+    transition: transform 0.3s;
+}
+
+.hamburger span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: var(--line-width);
+    background: var(--color-primary);
+    top: calc(var(--space) * 2);
+    transform-origin: center center;
+    transition: transform 0.3s;
+
+}
+
+.hamburger.active span {
+    transform: translateY(var(--space)) rotate(-45deg);
+}
+
+.hamburger.active span::before {
+    transform: translateY(calc(var(--space) * -1)) rotate(90deg);
+}
+
+.hamburger.active span::after {
+    transform: translateY(calc(var(--space) * -2)) rotate(90deg);
+    /* opacity: 0; */
+}
+
+.active-shadow{
+    box-shadow: 0 0 45px 0px rgba(0,0,0,0.3);
+}
+
+.shadow-top {
+    box-shadow: 0 2px 0 0 #ccc inset;
+}
+
+.container-inner {
+    padding-inline: 2rem;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.youtube-container iframe{
+    width: 100%;
+    height: 243px;
+}
+
+@media screen and (min-width: 42rem) {
+    .youtube-container iframe{
+        height: 723px;
+    }
+}
