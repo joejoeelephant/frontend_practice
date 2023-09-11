@@ -1,0 +1,36 @@
+.page-container {
+    --bgColor1: #ffffff;
+    --bgColor2: #e8e5e480;
+    --color1: #000000;
+    --color2: #7f7f7f;
+    --maxWidth: 1400px;
+    font-family: sans-serif;
+}
+
+.maxWidth {
+    max-width: var(--maxWidth);
+}
+
+.bgPrimary {
+    background-color: var(--bgColor1);
+}
+
+.bgSecondary {
+    background-color: var(--bgColor2);
+}
+
+.colorPrimary {
+    color: var(--color1);
+}
+
+.colorSecondary {
+    color: var(--color2);
+}
+
+.card-item:hover .card-mask {
+    opacity: 1;
+}
+
+.card-item:hover .card-item-icon {
+    transform: translate(0 ,0);
+}
