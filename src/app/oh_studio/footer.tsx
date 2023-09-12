@@ -2,12 +2,18 @@
 import React, {useRef} from 'react'
 import Image from 'next/image'
 import { useScrollTrigger } from './useScrollTrigger'
+import { useCurrentURL } from './useCurrentURLContext'
 export default function Footer() {
   const h2Ref = useRef<HTMLHeadingElement>(null)
   const paragraphRef = useRef<HTMLParagraphElement>(null)
 
   useScrollTrigger(h2Ref)
   useScrollTrigger(paragraphRef, 0.3)
+
+  const {currentURL} = useCurrentURL()
+    if(currentURL === 'contact') {
+        return (<></>)
+    }
 
   return (
     <footer>

@@ -2,11 +2,17 @@
 import React, {useRef} from 'react'
 import Image from 'next/image'
 import { useScrollTrigger } from './useScrollTrigger'
+import { useCurrentURL } from './useCurrentURLContext'
 export default function Home() {
+    const navName = "home"
+    const {currentURL} = useCurrentURL()
     const headingRef = useRef<HTMLHeadingElement>(null)
     const projectsRef = useRef<HTMLDivElement>(null)
     useScrollTrigger(headingRef)
     useScrollTrigger(projectsRef)
+    if(currentURL !== navName) {
+        return (<></>)
+    }
     return (
        <>
             <div>

@@ -2,6 +2,7 @@
 import React, {useRef} from 'react'
 import Image from 'next/image'
 import { useScrollTrigger } from './useScrollTrigger'
+import { useCurrentURL } from './useCurrentURLContext'
 export default function Profile() {
     const headingRef = useRef<HTMLHeadingElement>(null)
     const section1Ref = useRef<HTMLDivElement>(null)
@@ -13,6 +14,13 @@ export default function Profile() {
     useScrollTrigger(section2Ref, 0.5)
     useScrollTrigger(section3Ref, 0.5)
     useScrollTrigger(section4Ref, 0.5)
+    
+    const {currentURL} = useCurrentURL()
+    const navName = "profile"
+    if(currentURL !== navName) {
+        return (<></>)
+    }
+
     return (
         <>
             <div className='p-5 md:p-10 maxWidth mx-auto h-[50vh] md:h-[70vh] flex justify-center items-center'>

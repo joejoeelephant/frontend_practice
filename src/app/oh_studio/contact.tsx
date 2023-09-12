@@ -2,13 +2,18 @@
 import React, {useRef} from 'react'
 import Image from 'next/image'
 import { useScrollTrigger } from './useScrollTrigger'
-
+import { useCurrentURL } from './useCurrentURLContext'
 export default function Contact() {
     const h2Ref = useRef<HTMLHeadingElement>(null)
     const paragraphRef = useRef<HTMLParagraphElement>(null)
 
     useScrollTrigger(h2Ref)
     useScrollTrigger(paragraphRef, 0.3)
+    const {currentURL} = useCurrentURL()
+    const navName = "contact"
+    if(currentURL !== navName) {
+        return (<></>)
+    }
     return (
         <div className='flex flex-col justify-between' style={{height: "calc(100vh - 80px)"}}>
             <div className='flex-1 max-w-7xl mx-auto px-5 flex flex-col gap-4 justify-center items-center'>

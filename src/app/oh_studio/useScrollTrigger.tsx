@@ -1,10 +1,12 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef, useEffect } from "react";
+import { useCurrentURL } from "./useCurrentURLContext";
 import { useGSAPPlugins } from "./useGSAPPlugins";
 
 export const useScrollTrigger = (domRef: React.RefObject<HTMLElement>, delay: number = 0) => {
     useGSAPPlugins()
+    const {currentURL} = useCurrentURL()
     useEffect(() => {
         if(!domRef.current) return;
         let st = ScrollTrigger.create({
@@ -30,5 +32,5 @@ export const useScrollTrigger = (domRef: React.RefObject<HTMLElement>, delay: nu
         return () => {
             st.kill()
         };
-    }, [domRef, delay])
+    }, [domRef, delay, currentURL])
 }
